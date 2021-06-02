@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const api = {
   key: "fcb3f16c75993628e7a50ba4daea89f8",
-  base: "http://api.openweathermap.org/data/2.5/"
+  base: "https://api.openweathermap.org/data/2.5/"
 }
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
   const search = (e) =>{
     if(e.key === 'Enter'){
       const fetchData = async () => {
-        const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${api.key}`);
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${api.key}`);
         const results = await res.json();
         setWeather(results);
         setQuery('');
