@@ -14,12 +14,13 @@ const App = () => {
   
   const search = (e) =>{
     if(e.key === 'Enter'){
-      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${api.key}`)
-      .then(res => res.json())
-      .then(result => {
-        setWeather(result);
+      const fetchData = async () => {
+        const res = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=metric&APPID=${api.key}`);
+        const results = await res.json();
+        setWeather(results);
         setQuery('');
-      });
+      }
+      fetchData();
     }
   }
 
